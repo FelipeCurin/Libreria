@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/libro/select/', LibroAPI.as_view(), name='LibroAPI'), #GET
+    path('api/v1/libro/select/<int:id>/', LibroAPI.as_view(), name='LibroAPI'), #GET
     path('api/v1/libro/create/', LibroAPI.as_view(), name='LibroAPI'), #POST
     path('api/v1/libro/update/<int:id>/', LibroAPI.as_view(), name='LibroAPI'), #PUT
     path('api/v1/libro/delete/<int:id>/', LibroAPI.as_view(), name='LibroAPI'), #DELETE
