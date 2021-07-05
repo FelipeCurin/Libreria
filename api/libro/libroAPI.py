@@ -26,9 +26,10 @@ class LibroAPI(APIView):
             return Response(serializador.errors, status=400)
     
     def put(self, request, id):
+        data = request.data
         libro = Libro.objects.get(id = id)
 
-        serializador = LibroSerializado(libro, data=request.data)
+        serializador = LibroSerializado(libro, data=data)
 
         if serializador.is_valid():
             serializador.save()
@@ -36,7 +37,7 @@ class LibroAPI(APIView):
         else:
             return Response(serializador.errors, status=400)
 
-    def delete(self, id):
+    def delete(self,request, id):
         libro = Libro.objects.get(id = id)
         libro.delete()
         
