@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 class LibroAPI(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get(self):
+    def get(self,request):
         try:
             libros = Libro.objects.all()
             serializador = LibroSerializado(libros, many=True)
